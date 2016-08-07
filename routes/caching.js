@@ -16,7 +16,7 @@ exports.register = function (server, options, next) {
     method: 'GET',
     path: '/logo.png',
     handler: {
-      file: './public/hapi_logo.png'
+      file: './public/hapi_logo.png' //file handler from inert plugin automatically sends cache-control and etag headers
     }
   });
 
