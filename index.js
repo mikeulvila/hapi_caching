@@ -27,6 +27,8 @@ server.register([{
   }
 }, {
   register: require('inert')
+}, {
+  register: require('./routes/caching')
 }], (err) => {
 
   if (err) {
