@@ -1,0 +1,18 @@
+{
+  "name": "client-caching",
+  "version": "1.0.0",
+  "description": "Simple example to demonstrate client-side caching unsing hapi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Meier",
+  "license": "ISC",
+  "dependencies": {
+    "good": "^7.0.1",
+    "good-console": "^6.1.2",
+    "good-squeeze": "^3.0.1",
+    "hapi": "^13.4.1",
+    "inert": "^4.0.0"
+  }
+}
