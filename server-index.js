@@ -20,6 +20,7 @@ server.method('sum', add, {
   }
 });
 
+// route to perform add function and store value in memory
 server.route({
   method: 'GET',
   path: '/{a}/{b}',
@@ -43,6 +44,16 @@ server.route({
     }
   }
 });
+
+// route to read sum value from memory
+server.route({
+  method: 'GET',
+  path: '/stats',
+  handler: function (request, reply) {
+
+    return reply(server.methods.sum.cache);
+  }
+})
 
 //Register good plugin and start the server
 server.register({
