@@ -9,6 +9,23 @@ server.connection({
     port: 3000
 });
 
+server.route({
+  method: 'GET',
+  path: '/{a}/{b}',
+  handler: function(request, reply) {
+
+    return reply();
+  },
+  config: {
+    validate: {
+      params: {
+        a: Joi.number(),
+        b: Joi.number()
+      }
+    }
+  }
+});
+
 //Register good plugin and start the server
 server.register({
     register: require('good'),
