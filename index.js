@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
+const Joi = require('joi');
 
 // create server and connection
 const server = new Hapi.Server();
