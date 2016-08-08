@@ -9,12 +9,30 @@ server.connection({
     port: 3000
 });
 
+const add = (a, b, callback) => {
+  return callback(null, a + b);
+};
+
+server.method('sum', add, {
+  cache: {
+    expiresIn: 5000,
+    generateTimeout: 100
+  }
+});
+
 server.route({
   method: 'GET',
   path: '/{a}/{b}',
   handler: function(request, reply) {
 
-    return reply();
+    server.methods.sum(request.params.a, request.params.b, (err, result) => {
+
+      if (err) {
+        throw err;
+      }
+
+      return reply(result);
+    });
   },
   config: {
     validate: {
