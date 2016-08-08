@@ -1,7 +1,6 @@
 'use strict';
 
 const Hapi = require('hapi');
-const Joi = require('joi');
 
 // create server and connection
 const server = new Hapi.Server();
@@ -29,7 +28,7 @@ server.register([{
 }, {
   register: require('inert')
 }, {
-  register: require('./routes/caching')
+  register: require('./routes/client-caching')
 }], (err) => {
 
   if (err) {
