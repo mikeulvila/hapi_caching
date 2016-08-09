@@ -22,7 +22,7 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/',
+    path: '/hello',
     handler: function (request, reply) {
 
       const response = 'Hi with Cach-Control and Etag!';
