@@ -4,7 +4,15 @@ const Hapi = require('hapi');
 const Joi = require('joi');
 
 //Create server and connection
-const server = new Hapi.Server();
+const server = new Hapi.Server({
+  // to use redis server as cache
+  // *****************************
+  cache: [{
+    engine: require('catbox-redis'),
+    name: 'redis-cache'
+  }]
+  // *****************************
+});
 server.connection({
     port: 3000
 });
@@ -16,7 +24,8 @@ const add = (a, b, callback) => {
 server.method('sum', add, {
   cache: {
     expiresIn: 5000,
-    generateTimeout: 100
+    generateTimeout: 100,
+    cache: 'redis-cache'  // to use redis server as cache
   }
 });
 
